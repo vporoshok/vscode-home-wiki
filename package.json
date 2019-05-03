@@ -1,0 +1,56 @@
+{
+	"name": "home-wiki",
+	"displayName": "Home wiki",
+	"description": "",
+	"publisher": "vporoshok",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:vporoshok/vscode-home-wiki.git"
+	},
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.open"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.open",
+				"title": "home-wiki: Open"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Home wiki configuration",
+			"properties": {
+				"home-wiki.root": {
+					"type": "string",
+					"default": "~/wiki",
+					"description": "Root directory of wiki"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"bundle": "vsce package",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^10.12.21",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vsce": "^1.61.0",
+		"vscode": "^1.1.28"
+	}
+}
